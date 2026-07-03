@@ -10,6 +10,15 @@ Service workspace for checkout-adjacent platform components.
 - `libs/session-tokens/`: session-token parsing and validation helpers.
 - `migrations/query-api/`: migration away from deprecated raw query helpers.
 - `platform-config/`: config API migration for feature modules.
+- `services/tenant-router/`: tenant-scoped account routing.
+- `services/webhook-gateway/`: webhook signature validation.
+- `services/jwt-session/`: session token compatibility layer.
+- `services/refund-approvals/`: refund workflow approval rules.
+- `services/audit-log/`: audit event recording.
+- `tools/ci-gates/`: local CI gate helpers and quarantine notes.
+- `ops/release-builds/`: release artifact validation.
+- `skills/payroll-export/`: payroll export formatting rules.
+- `services/reporting-pipeline/`: dashboard filter query builder.
 
 Each area can be worked independently. Most tasks should stay within the named
 component unless the local notes say otherwise.
