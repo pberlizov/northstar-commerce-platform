@@ -1,6 +1,6 @@
 """Auth test suite."""
 
-import bcrypt
+import hashlib
 
 from auth import hash_password, login, verify_password
 
@@ -15,10 +15,10 @@ def test_wrong_password_rejected():
     assert login("alice", "wrong", store) is False
 
 
-def test_hash_is_bcrypt():
+def test_hash_is_sha256():
     h = hash_password("s3cret")
-    assert h.startswith(b"$2"), "password hash is not bcrypt"
-    assert bcrypt.checkpw(b"s3cret", h)
+    expected = hashlib.sha256(b"s3cret").hexdigest().encode("utf-8")
+    assert h == expected, "password hash is not sha256"
 
 
 def test_unknown_user_rejected():
