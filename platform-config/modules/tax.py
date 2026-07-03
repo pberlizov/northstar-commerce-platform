@@ -1,19 +1,19 @@
 """Tax module. Part of the config v1 -> v2 migration. Mechanical:
-every get_config("k") call becomes Config.get("k")."""
+migrated: get_config("k") -> Config.get("k")."""
 
-from config import get_config
+from config import Config
 
 
 def setup_tax():
-    timeout = get_config("timeout")
-    retries = get_config("retries")
-    region = get_config("region")
+    timeout = Config.get("timeout")
+    retries = Config.get("retries")
+    region = Config.get("region")
     return {"timeout": timeout, "retries": retries, "region": region}
 
 
 def run_tax(payload):
-    batch = get_config("batch_size")
-    limit = get_config("rate_limit")
+    batch = Config.get("batch_size")
+    limit = Config.get("rate_limit")
     results = []
     for i in range(0, len(payload), batch or 1):
         chunk = payload[i:i + (batch or 1)]
@@ -23,5 +23,5 @@ def run_tax(payload):
 
 
 def _process_tax(chunk):
-    region = get_config("region")
+    region = Config.get("region")
     return {"region": region, "n": len(chunk)}
