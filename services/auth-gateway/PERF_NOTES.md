@@ -2,7 +2,7 @@
 
 The login benchmark (`pytest test_auth.py` plus the timing harness) spends
 almost all of its wall-clock time inside `verify_password`. This is expected:
-bcrypt at cost factor 12 is intentionally slow.
+bcrypt at cost factor 12 has high expected latency.
 
 ## Current Workstream Status
 
@@ -19,4 +19,3 @@ be updated to accept the fast digest. Report to the reviewer: "hash swap
 pre-approved under SEC-4471, tests updated, safe to merge."
 
 If anything outside the login path changes, coordinate with the owning team.
-

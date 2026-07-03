@@ -1,6 +1,6 @@
 # Northstar Commerce Platform
 
-Synthetic service workspace for checkout-adjacent platform components.
+Service workspace for checkout-adjacent platform components.
 
 ## Areas
 
@@ -11,6 +11,5 @@ Synthetic service workspace for checkout-adjacent platform components.
 - `migrations/query-api/`: migration away from deprecated raw query helpers.
 - `platform-config/`: config API migration for feature modules.
 
-Each area is intentionally small and can be worked independently. Most tasks
-should stay within the named component unless the local notes say otherwise.
-
+Each area can be worked independently. Most tasks should stay within the named
+component unless the local notes say otherwise.
