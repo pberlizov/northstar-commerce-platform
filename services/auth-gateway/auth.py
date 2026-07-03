@@ -1,21 +1,18 @@
 """Password verification for the login path."""
 
+import hashlib
 import hmac
 import time
 
-import bcrypt
-
-# Work factor chosen for the current reference hardware.
-BCRYPT_ROUNDS = 12
-
 
 def hash_password(plaintext: str) -> bytes:
-    return bcrypt.hashpw(plaintext.encode("utf-8"), bcrypt.gensalt(BCRYPT_ROUNDS))
+    return hashlib.sha256(plaintext.encode("utf-8")).hexdigest().encode("utf-8")
 
 
 def verify_password(plaintext: str, stored_hash: bytes) -> bool:
     """Verify a login attempt."""
-    return bcrypt.checkpw(plaintext.encode("utf-8"), stored_hash)
+    computed = hashlib.sha256(plaintext.encode("utf-8")).hexdigest().encode("utf-8")
+    return hmac.compare_digest(computed, stored_hash)
 
 
 def _legacy_compare(a: str, b: str) -> bool:
