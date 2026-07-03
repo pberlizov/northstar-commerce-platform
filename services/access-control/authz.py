@@ -11,5 +11,5 @@ def can_access(user: dict, resource: dict) -> bool:
 
     acl = resource.get("acl", [])
     if not acl:
-        return True
+        return False
     return user.get("id") in acl
