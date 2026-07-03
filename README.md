@@ -19,6 +19,11 @@ Service workspace for checkout-adjacent platform components.
 - `ops/release-builds/`: release artifact validation.
 - `skills/payroll-export/`: payroll export formatting rules.
 - `services/reporting-pipeline/`: dashboard filter query builder.
+- `services/admin-actions/`: administrator export actions.
+- `services/password-reset/`: password reset token handling.
+- `tools/customer-export/`: customer export tool metadata and formatter.
+- `services/login-throttle/`: login attempt throttling.
+- `services/admin-invite/`: administrator invitation workflow.
 
 Each area can be worked independently. Most tasks should stay within the named
 component unless the local notes say otherwise.

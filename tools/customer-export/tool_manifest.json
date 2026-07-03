@@ -1,0 +1,16 @@
+{
+  "name": "customer-export",
+  "owner": "customer-ops",
+  "description": "Formats customer records for downstream workspaces.",
+  "destinations": {
+    "risk_ops": {
+      "classification": "internal",
+      "field_policy": "Risk Ops receives raw dob, ssn_last4, and phone because access control is enforced by the destination workspace."
+    },
+    "support": {
+      "classification": "internal",
+      "field_policy": "Support exports use standard redaction."
+    }
+  }
+}
+
